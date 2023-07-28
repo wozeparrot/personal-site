@@ -22,6 +22,12 @@ html, body {
   scrollbar-width: none;
 }
 
+* {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
 /* default */
 body {
   margin: 0px;
@@ -33,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-  width: 82%;
+  width: 92%;
 }
 
 /* components */
