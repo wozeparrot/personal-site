@@ -7,9 +7,11 @@
   let generateTiles = () => {
     tiles.innerHTML = "";
 
-    columns = Math.floor(document.body.clientWidth / 80);
+    const size = document.body.clientWidth < 850 ? 60 : 80;
+
+    columns = Math.floor(document.body.clientWidth / size);
     tiles.style.setProperty("--columns", columns);
-    rows = Math.floor(document.body.clientHeight / 80);
+    rows = Math.floor(document.body.clientHeight / size);
     tiles.style.setProperty("--rows", rows);
 
     for (let i = 0; i < columns * rows; i++) {
