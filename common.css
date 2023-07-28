@@ -1,10 +1,4 @@
 /* make it responsive */
-@media (max-width: 768px) {
-  .page {
-    margin: 0 auto;
-    font-size: 0.85rem;
-  }
-}
 @media(min-width: 768px) {
   body {
     font-size: 22px;
