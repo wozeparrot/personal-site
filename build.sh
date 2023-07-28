@@ -6,7 +6,7 @@ IFS=$'\n\t'
 mkdir -p build
 
 # copy assets
-cp -r assets build/assets
+# cp -r assets build/assets
 
 # copy styles
 cp *.css build/
