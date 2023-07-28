@@ -1,0 +1,23 @@
+.content {
+  /* modal */
+  height: 45vh;
+  width: 45vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #151510;
+  border-radius: 20px;
+  color: #d2cad3;
+}
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}

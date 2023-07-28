@@ -1,0 +1,95 @@
+<div id="tiles"></div>
+
+<script>
+  const tiles = document.getElementById("tiles");
+
+  // tile generation
+  let generateTiles = () => {
+    tiles.innerHTML = "";
+
+    columns = Math.floor(document.body.clientWidth / 80);
+    tiles.style.setProperty("--columns", columns);
+    rows = Math.floor(document.body.clientHeight / 80);
+    tiles.style.setProperty("--rows", rows);
+
+    for (let i = 0; i < columns * rows; i++) {
+      const tile = document.createElement("div");
+      const inner_tile = document.createElement("div");
+      inner_tile.classList.add("inner_tile");
+      tile.appendChild(inner_tile);
+      tile.onmouseenter = () => {
+        inner_tile.style.backgroundColor = "#08040b00";
+        inner_tile.style.borderRadius = "40px";
+        inner_tile.style.scale = "0%";
+      };
+      tiles.appendChild(tile);
+    }
+  }
+  generateTiles();
+  window.onresize = generateTiles;
+
+  setInterval(() => {
+    // randomly fade out tiles
+    tiles.childNodes.forEach((tile) => {
+      if (Math.random() < 0.1) {
+        tile.childNodes[0].style.backgroundColor = "#08040b00";
+        tile.childNodes[0].style.borderRadius = "40px";
+        tile.childNodes[0].style.scale = "0%";
+      }
+    });
+  }, 1000);
+  setInterval(() => {
+    // randomly fade in tiles
+    tiles.childNodes.forEach((tile) => {
+      if (Math.random() < 0.5) {
+        tile.childNodes[0].style.backgroundColor = "#151510bb";
+        tile.childNodes[0].style.borderRadius = "0px";
+        tile.childNodes[0].style.scale = "100%";
+      }
+    });
+  }, 1000);
+</script>
+
+<style>
+  @keyframes background-gradient {
+    from {
+      background-position: 0%;
+    }
+
+    to {
+      background-position: 200%;
+    }
+  }
+
+  body {
+    background: linear-gradient(to right,
+        #a52e4d,
+        #aa3c9f,
+        #a52e4d);
+    background-size: 200%;
+    animation: background-gradient 10s ease-in-out infinite;
+  }
+
+  #tiles {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    gap: 3px;
+  }
+
+  .inner_tile {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0px;
+
+    background-color: #151510bb;
+    border-radius: 0px;
+
+    transition: ease-in-out 1s;
+  }
+</style>
