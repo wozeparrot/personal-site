@@ -53,6 +53,18 @@ hr {
   transform: translate(-50%, -50%);
 }
 
+.centered-w-only {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.centered-h-only {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .clean-a {
   text-decoration: underline;
   text-decoration-color: #006fc1;
