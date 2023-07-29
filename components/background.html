@@ -27,7 +27,13 @@
       tiles.appendChild(tile);
     }
   }
-  window.onresize = generateTiles;
+  window.onresize = () => {
+    generateTiles();
+    tiles.childNodes.forEach((tile) => {
+      tile.childNodes[0].style.backgroundColor = "#151510aa";
+      tile.childNodes[0].style.scale = "100%";
+    });
+  };
   generateTiles();
   setTimeout(() => {
     tiles.childNodes.forEach((tile) => {
@@ -35,7 +41,7 @@
     });
   }, 0);
 
-  setInterval(() => {
+  const randomFiFoId = setInterval(() => {
     // randomly fade in and out tiles
     tiles.childNodes.forEach((tile) => {
       if (Math.random() < 0.1) {
@@ -48,6 +54,25 @@
       }
     });
   }, 1000);
+
+  document.addEventListener("transition", () => {
+    // cancel random fade in and out
+    clearInterval(randomFiFoId);
+
+    // cancel background animation
+    document.body.style.animation = "none";
+
+    // transition tiles
+    tiles.childNodes.forEach((tile) => {
+      tile.childNodes[0].style.backgroundColor = "#08040b00";
+      tile.childNodes[0].style.borderRadius = "0px";
+      tile.childNodes[0].style.scale = "1000%";
+      tile.childNodes[0].style.transition = "ease-out 0.9s";
+
+      // also disable hover
+      tile.onmouseenter = () => {};
+    });
+  });
 </script>
 
 <style>
@@ -78,7 +103,7 @@
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
-    gap: 3px;
+    gap: 4px;
   }
 
   .inner_tile {

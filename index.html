@@ -65,6 +65,17 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener("transition", () => {
+      const content = document.querySelector(".content");
+      content.style.scale = "0%";
+    });
+    setTimeout(() => {
+      const content = document.querySelector(".content");
+      content.style.transform = "translateY(0vh)";
+    }, 0);
+  </script>
+
   <div class="centered">
     <h6 class="ring-content">
       <a class="ring-link ring-prev" href="https://ring.simonwu.dev/prev/woze"><b>prev</b></a>
@@ -74,6 +85,17 @@
       <a class="ring-link ring-next" href="https://ring.simonwu.dev/next/woze"><b>next</b></a>
     </h6>
   </div>
+
+  <script>
+    document.addEventListener("transition", () => {
+      const content = document.querySelector(".ring-content");
+      content.style.scale = "0%";
+    });
+    setTimeout(() => {
+      const content = document.querySelector(".ring-content");
+      content.style.transform = "translateY(42vh)";
+    }, 0);
+  </script>
 </body>
 
 </html>

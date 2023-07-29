@@ -19,6 +19,30 @@
 </head>
 
 <body>
+  <component-background />
+
+  <script>
+    // tweak the background a bit
+    clearInterval(randomFiFoId);
+    tiles.childNodes.forEach((tile) => {
+      tile.childNodes[0].style.scale = "1000%";
+      tile.onmouseenter = () => {};
+    });
+    setTimeout(() => {
+      tiles.childNodes.forEach((tile) => {
+        tile.childNodes[0].style.backgroundColor = "#3b1c25";
+      });
+    }, 1);
+    window.onresize = () => {
+      generateTiles();
+      tiles.childNodes.forEach((tile) => {
+        tile.childNodes[0].style.backgroundColor = "#3b1c25";
+        tile.childNodes[0].style.scale = "1000%";
+        tile.onmouseenter = () => {};
+      });
+    };
+  </script>
+
   <component-header />
 </body>
 

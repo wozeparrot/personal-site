@@ -14,6 +14,33 @@
   </div>
 </div>
 
+<script>
+  const transitionEvent = new Event("transition");
+
+  // for each link in the header, prevent the default event and instead broadcast a transition event
+  document.querySelectorAll(".header a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.dispatchEvent(transitionEvent);
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 1000);
+    });
+  });
+
+  // find out which page we're on
+  const page = window.location.pathname.split("/").pop().split(".")[0];
+  // select the corresponding header link
+  const selectedHeader = document.querySelector(`.header a[href="/${page}.html"]`);
+  if (selectedHeader) {
+    // add a class to the selected header link
+    selectedHeader.classList.add("selected-header");
+  } else {
+    // if we're on the home page, select the home link
+    document.querySelector(`.header a[href="/"]`).classList.add("selected-header");
+  }
+</script>
+
 <style>
   .header {
     transform: translateY(-42vh);
@@ -32,5 +59,9 @@
     border-radius: 10px;
     color: #d2cad3;
     box-shadow: 20px 20px 32px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .selected-header {
+    text-decoration-color: #33b3f4;
   }
 </style>
