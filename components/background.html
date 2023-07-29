@@ -27,22 +27,20 @@
       tiles.appendChild(tile);
     }
   }
-  generateTiles();
   window.onresize = generateTiles;
+  generateTiles();
+  setTimeout(() => {
+    tiles.childNodes.forEach((tile) => {
+      tile.childNodes[0].style.backgroundColor = "#151510aa";
+    });
+  }, 0);
 
   setInterval(() => {
-    // randomly fade out tiles
+    // randomly fade in and out tiles
     tiles.childNodes.forEach((tile) => {
       if (Math.random() < 0.1) {
         tile.childNodes[0].style.backgroundColor = "#08040b00";
-        tile.childNodes[0].style.borderRadius = "40px";
-        tile.childNodes[0].style.scale = "0%";
       }
-    });
-  }, 1000);
-  setInterval(() => {
-    // randomly fade in tiles
-    tiles.childNodes.forEach((tile) => {
       if (Math.random() < 0.5) {
         tile.childNodes[0].style.backgroundColor = "#151510bb";
         tile.childNodes[0].style.borderRadius = "0px";
@@ -86,12 +84,11 @@
   .inner_tile {
     height: 100%;
     width: 100%;
-    position: relative;
-    margin: 0px;
+    scale: 100%;
 
-    background-color: #151510bb;
+    background-color: #08040b00;
     border-radius: 0px;
 
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.9s;
   }
 </style>

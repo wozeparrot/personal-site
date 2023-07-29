@@ -35,6 +35,8 @@ html, body {
 body {
   margin: 0px;
   overflow: hidden;
+
+  background-color: #3b1c25;
 }
 
 h1, h2, h3, h4, h5, h6 {
