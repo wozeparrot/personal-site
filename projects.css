@@ -1,0 +1,27 @@
+@media(min-width: 1150px) {
+  .content {
+    width: 70rem;
+  }
+}
+@media(max-width: 1150px) {
+  .content {
+    width: 90vw;
+  }
+}
+.content {
+  height: 100%;
+  padding: 2rem;
+  transform: translateY(100vh);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #151510;
+  border-radius: 20px;
+  color: #d2cad3;
+  box-shadow: 20px 20px 32px 2px rgba(0, 0, 0, 0.5);
+
+  transition: ease-in-out 0.2s;
+}
